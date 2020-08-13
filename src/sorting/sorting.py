@@ -1,3 +1,10 @@
+'''
+Merge Sort:
+Merge Sort is a Divide and Conquer algorithm. It divides input array in two halves, calls itself for the two
+halves and then merges the two sorted halves. The merge() function is used for merging two halves. The merge(arr, l, m, r)
+is key process that assumes that arr[l..m] and arr[m+1..r] are sorted and merges the two sorted sub-arrays into one.
+'''
+
 # TO-DO: complete the helper function below to merge 2 sorted arrays
 def merge(arrA, arrB):
     a, b = len(arrA), len(arrB) # set a to length of arrA, set b to length of arrB
@@ -28,7 +35,49 @@ def merge(arrA, arrB):
             arrB.remove(y) # remove the value from the arrB
 
     return merged_arr
+'''
+### class walkthrough ###
+def merge_sort(arr):
+    if len(arr) == 0:
+        return None
 
+    # Base
+    # if len(arr) > 1:
+    if len(arr) == 1:
+        return arr
+
+    # Recursive
+    else:
+        # divide 'arr' into a LHS, RHS
+        merge_sort(LHS)
+        merge_sort(RHS)
+        arr = merge(LHS, RHS)
+
+    return arr
+
+    # pre-req - a, b are SORTED lists
+    def merge_helper(a, b):
+        sorted = []
+            ai = 0
+            bi = 0
+            count = len(a) +len(b)
+
+            while len(sorted) < count:
+                if ai >= len(a):
+                    sorted.append(b[bi])
+                    bi += 1
+                elif  bi >= len(b):
+                    sorted.append(a[ai])
+                    ai += 1
+                elif a[ai] < b[bi]:
+                    sorted.append(a[ai])
+                    ai += 1
+                elif a[ai] >= b[bi]:
+                    sorted.append(b[bi])
+                    bi += 1
+
+        return sorted
+'''
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort(arr): # function to merge sorted arrays
     if len(arr) <= 1: # if leng of ar is <= 1
